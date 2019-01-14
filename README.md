@@ -1,2 +1,2 @@
-# C++-stuff
+# C++stuff
 name is a description
