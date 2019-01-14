@@ -1,0 +1,14 @@
+#include <iostream>
+//Function to swap two variables without third variable
+void swap(int *a, int *b) {
+	*a = *a + *b;
+	*b = (*a - *b);
+	*a = *a - *b;
+
+}
+int main() {
+	int a = 5; int b = 10;
+	swap(&a, &b);
+	std::cout << "b == " << b << std::endl;
+	std::cout << "a == " << a << std::endl;
+}
