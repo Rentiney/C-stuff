@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+class MyClass {
+private:
+	int *data;
+	int inner_size = 0;
+public:
+	MyClass(int size) {
+		this->inner_size = size;
+		data = new int[inner_size];
+		for (int i = 0; i < inner_size; i++) {
+			data[i] = i;
+		}
+		cout << "Constructor invoked for <" << this << ">" << endl;
+	}
+	~MyClass() {
+		delete []data;
+		cout << "Destructor invoked for <" << this << ">" << endl;
+	}
+	void operator = (const MyClass &other) {
+		this->inner_size = other.inner_size;
+		if (this->data != nullptr) {
+			delete[]data;
+		}
+		data = new int[other.inner_size];
+		for (int i = 0; i < inner_size; i++) {
+			data[i] = i;
+		}
+		cout << "Operator changing invoked for <" << this << ">" << endl;
+	}
+	void print() {
+		cout << data << endl;
+	}
+};
+void foo(MyClass value) {
+	
+}
+int main() {
+
+	MyClass a(3);
+	MyClass b(9);
+	a = b;
+	cout << endl << endl;
+	a.print();
+	b.print();
+	cout << endl << endl;
+}
