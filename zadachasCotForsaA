@@ -1,0 +1,24 @@
+#include "pch.h"
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main() {
+	srand(time(NULL));
+	int finalWatchers, finalPlayers, watchers = 0, players = 0, scoreToWin, counter;
+	cin >> finalWatchers>>  finalPlayers;
+	if (finalWatchers > 1000) finalWatchers = 1000;// Блять, помогите от этих проверок избавится
+	if (finalPlayers > 1000) finalPlayers = 1000;
+	if (finalWatchers <= 0) finalWatchers = 1;
+	if (finalPlayers <= 0) finalWatchers = 1;
+	if (finalPlayers == finalWatchers) finalPlayers, finalWatchers = 1, 2;// нет, ну это же форменный пиздец
+	finalWatchers > finalPlayers ? scoreToWin = finalWatchers : scoreToWin = finalPlayers;
+
+	while ((watchers < scoreToWin) && (players < scoreToWin)) {
+		counter = rand() % 3;
+		if (counter == 1) watchers++;
+		else players++;
+		cout << players << ':' << watchers << endl;
+	}
+	return 0;
+}
