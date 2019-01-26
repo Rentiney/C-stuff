@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
 	string alphabet = "abcdefghijklmnopqrstuvwxyz";
-	string password = "putin";
+	string password = "stuff";
 	string guess = "";
 	float x, y;
 	clock_t time_req;
