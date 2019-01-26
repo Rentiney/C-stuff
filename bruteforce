@@ -1,0 +1,36 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <ctime>
+
+using namespace std;
+
+
+int main() {
+	string alphabet = "abcdefghijklmnopqrstuvwxyz";
+	string password = "putin";
+	string guess = "";
+	float x, y;
+	clock_t time_req;
+
+	time_req = clock();
+	int counter = 0;
+	srand(time(NULL));
+	while(true) {
+		counter++;
+		for (int i = 0; i < password.size(); i++) {
+			guess.push_back(alphabet[rand() % alphabet.size()]);
+		}
+		cout << guess;
+		if (guess == password) {
+			break;
+		}
+		guess.clear();
+	}
+	cout << endl;
+	cout << "The password == " << guess << endl;
+	cout << "Tried " << counter << " passwords";
+	time_req = clock() - time_req;
+	cout << "It took " << (float)time_req / CLOCKS_PER_SEC << " seconds" << endl;
+	return 0;
+}
